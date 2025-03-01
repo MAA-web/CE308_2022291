@@ -30,6 +30,7 @@ export default function App() {
   }, []);
 
   async function fetchUserProfile() {
+    //@ts-ignore
     const { data: profiles } = await client.models.UserProfile.list();
     setUserProfiles(profiles);
   }
@@ -43,7 +44,7 @@ export default function App() {
       width="70%"
       margin="0 auto"
     >
-      <Heading level={1}>My Profile</Heading>
+      <Heading level={1}>Your Profile</Heading>
 
       <Divider />
 
@@ -56,6 +57,7 @@ export default function App() {
       >
         {userprofiles.map((userprofile) => (
           <Flex
+          /* @ts-ignore*/
             key={userprofile.id || userprofile.email}
             direction="column"
             justifyContent="center"
@@ -67,6 +69,7 @@ export default function App() {
             className="box"
           >
             <View>
+              {/* @ts-ignore*/}
               <Heading level="3">{userprofile.email}</Heading>
             </View>
           </Flex>
